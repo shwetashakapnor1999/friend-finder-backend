@@ -1,0 +1,140 @@
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      <!-- Newsfeed Common Side Bar Left
+      ================================================= -->
+      <div class="col-md-3 static">
+        <div class="profile-card">
+          <label class="hoverable" for="fileInput">
+            <!-- <img
+            src="../../assets/images/users/user-1.jpg"
+            alt="user"
+            class="profile-photo"
+          /> -->
+
+            <img
+              src="http://localhost:3000/{{ user_photo }}"
+              class="profilepic"
+              alt="profilepic"
+            />
+
+            <div class="hover-text"></div>
+            <div class="background"></div>
+          </label>
+          <br />
+          <input
+            type="file"
+            (change)="handleChangePic($event)"
+            class="form-control"
+          />
+          <br />
+          <button class="btn btn-primary" (click)="upload()">Upload</button>
+          <h5 *ngIf="checkTokenUser()">
+            <a routerLink="timeline" class="text-white">{{ username }}</a>
+          </h5>
+
+          <!-- <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a> -->
+        </div>
+        <!--profile card ends-->
+
+        <!-- <ul *ngFor="let item of data">
+          <li>{{ item.name }} with {{ item._id }}</li>
+        </ul> -->
+
+        <ul class="nav-news-feed">
+          <li>
+            <i class="icon ion-ios-paper"></i>
+            <div><a routerLink="mynewsfeed">My Newsfeed</a></div>
+          </li>
+          <li>
+            <i class="icon ion-ios-people-outline"></i>
+            <div><a routerLink="friends">Friends</a></div>
+          </li>
+          <li>
+            <i class="icon ion-chatboxes"></i>
+            <div><a routerLink="messages">Messages</a></div>
+          </li>
+          <li>
+            <i class="icon ion-images"></i>
+            <div><a routerLink="images">Images</a></div>
+          </li>
+        </ul>
+        <!--news-feed links ends-->
+      </div>
+
+      <router-outlet></router-outlet>
+
+      <!-- Newsfeed Common Side Bar Right
+      ================================================= -->
+      <div class="col-md-2 static">
+        <div class="suggestions" id="sticky-sidebar">
+          <h4 class="grey">Who to Follow</h4>
+          <div *ngFor="let item of data">
+            <div class="follow-user">
+              <img
+                src="http://localhost:3000/{{ item.user_photo }}"
+                alt=""
+                class="profile-photo-sm pull-left"
+              />
+              <div>
+                <h5>
+                  <a routerLink="timeline">{{ item.name }}</a>
+                </h5>
+                <a
+                  routerLink="newsfeed"
+                  (click)="addNewFriend(item._id)"
+                  class="text-green"
+                  >Add friend</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- <div class="follow-user">
+            <img
+              src="../../assets/images/users/user-12.jpg"
+              alt=""
+              class="profile-photo-sm pull-left"
+            />
+            <div>
+              <h5><a href="timeline.html">Cris Haris</a></h5>
+              <a href="#" class="text-green">Add friend</a>
+            </div>
+          </div>
+          <div class="follow-user">
+            <img
+              src="../../assets/images/users/user-13.jpg"
+              alt=""
+              class="profile-photo-sm pull-left"
+            />
+            <div>
+              <h5><a href="timeline.html">Brian Walton</a></h5>
+              <a href="#" class="text-green">Add friend</a>
+            </div>
+          </div>
+          <div class="follow-user">
+            <img
+              src="../../assets/images/users/user-14.jpg"
+              alt=""
+              class="profile-photo-sm pull-left"
+            />
+            <div>
+              <h5><a href="timeline.html">Olivia Steward</a></h5>
+              <a href="#" class="text-green">Add friend</a>
+            </div>
+          </div>
+          <div class="follow-user">
+            <img
+              src="../../assets/images/users/user-15.jpg"
+              alt=""
+              class="profile-photo-sm pull-left"
+            />
+            <div>
+              <h5><a href="timeline.html">Sophia Page</a></h5>
+              <a href="#" class="text-green">Add friend</a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

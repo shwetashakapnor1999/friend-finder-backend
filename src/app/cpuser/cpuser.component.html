@@ -1,0 +1,45 @@
+<!-- content Start -->
+<div class="about wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12 col-md-12">
+        <h2>Change Password Here!!!</h2>
+        <font color="red">{{ msg }}</font>
+        <form #cpuser="ngForm" (ngSubmit)="onClickSubmit(cpuser.value)">
+          <div class="form-group">
+            <label for="opass">Old Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="opass"
+              name="opass"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="npass">New Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="npass"
+              name="npass"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="cnpass">Confirm New Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="cnpass"
+              name="cnpass"
+              ngModel
+            />
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Content End -->

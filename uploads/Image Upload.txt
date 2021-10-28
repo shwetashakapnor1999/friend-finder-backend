@@ -1,0 +1,32 @@
+Image Upload
+url = 'https://www.w3schools.com/howto/img_avatar.png'
+
+image on server
+image in DB
+
+server
+Image on Disk
+
+http://localhost:3000/posts/img_avatar.png
+http://localhost:3000/users_profile/img_avatar.png
+
+Post
+{
+"\_id" : 13,
+"texts" : "Hello",
+"userId" : 9,
+"info" : "Tue Sep 21 2021 19:59:11 GMT+0530 (India Standard Time)",
+"post_image": "http://localhost:3000/posts/img_avatar.png"
+"comments" : [ ]
+}
+
+user
+{
+\_id: 1,
+name: 'Shweta Shakapnor',
+mail: 'shwetashakapnor@gmail.com', password: 'shweta',
+status: 1,
+role: 'user',
+info: 'Sat Sep 18 2021 12:35:51 GMT+0530 (India Standard Time)',
+user_photo: 'http://localhost:3000/users_profile/img_avatar.png'
+}

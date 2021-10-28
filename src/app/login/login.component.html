@@ -1,0 +1,47 @@
+<section id="banner">
+  <div class="container">
+    <!-- Login Form
+================================================= -->
+    <div class="login-form">
+      <div class="line-divider"></div>
+      <div class="form-wrapper">
+        <p class="Login-text" style="color: aliceblue">
+          Login now and meet awesome people around the world
+        </p>
+        <font color="red">{{ msg }}</font>
+        <form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)">
+          <fieldset class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              id="example-email"
+              placeholder="Enter email"
+              name="username"
+              ngModel
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              id="example-password"
+              placeholder="Enter a password"
+              name="password"
+              ngModel
+            />
+          </fieldset>
+          <button type="submit" class="btn-secondary" style="color: aqua">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Sign Up Form End -->
+
+    <svg class="arrows hidden-xs hidden-sm">
+      <path class="a1" d="M0 0 L30 32 L60 0"></path>
+      <path class="a2" d="M0 20 L30 52 L60 20"></path>
+      <path class="a3" d="M0 40 L30 72 L60 40"></path>
+    </svg>
+  </div>
+</section>

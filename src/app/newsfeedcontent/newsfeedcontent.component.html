@@ -1,0 +1,144 @@
+<div class="col-md-7">
+  <!-- Post Create Box
+    ================================================= -->
+  <div class="create-post">
+    <div class="row">
+      <form
+        class="contact-form"
+        #userpost="ngForm"
+        (ngSubmit)="onClickSubmit(userpost.value)"
+      >
+        <div class="col-md-7 col-sm-7">
+          <div
+            class="form-group"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            <img
+              src="http://localhost:3000/{{ user_photo }}"
+              alt="profilepic"
+              class="profile-photo-md"
+            />
+            <textarea
+              name="texts"
+              id="exampleTextarea"
+              cols="30"
+              rows="1"
+              class="form-control"
+              placeholder="Write what you wish"
+              ngModel
+            ></textarea>
+            <input
+              type="file"
+              (change)="handleChangePic($event)"
+              name="photo"
+              ngModel
+              class="form-control"
+            />
+            <br />
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-5">
+          <div class="tools">
+            <!-- <ul class="publishing-tools list-inline">
+              <li>
+                <a href="#"><i class="ion-compose"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-images"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-map"></i></a>
+              </li>
+            </ul> -->
+            <button class="btn btn-primary pull-right">Publish</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Post Content
+    ================================================= -->
+  <div *ngFor="let item of data">
+    <div class="post-content">
+      <img
+        src="http://localhost:3000/{{
+          item.imagePath || 'photos/1632247130866-photo.jpg'
+        }}"
+        alt="post-image"
+        class="img-responsive post-image"
+      />
+      <div class="post-container">
+        <!-- <img
+          src="../../assets/images/users/user-5.jpg"
+          alt="user"
+          class="profile-photo-md pull-left"
+        /> -->
+        <div class="post-detail">
+          <div class="user-info">
+            <h5>
+              <a href="timeline.html" class="profile-link">{{
+                item.userName
+              }}</a>
+              <!-- <span class="following">following</span> -->
+            </h5>
+            <p class="text-muted">{{ item.info }}</p>
+          </div>
+
+          <div class="reaction">
+            <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+            <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+          </div>
+          <div class="line-divider"></div>
+          <div class="post-text">
+            <p>
+              {{ item.texts }}
+              <i class="em em-anguished"></i> <i class="em em-anguished"></i>
+              <i class="em em-anguished"></i>
+            </p>
+          </div>
+          <div class="line-divider"></div>
+          <div *ngFor="let body of item.comments">
+            <div class="post-comment">
+              <img
+                src="http://localhost:3000/{{ body.user_photo }}"
+                alt=""
+                class="profile-photo-sm"
+              />
+              <p>
+                <a href="timeline.html" class="profile-link"
+                  >{{ body.userName }} </a
+                ><i class="em em-laughing"></i>{{ body.comment }}
+              </p>
+            </div>
+          </div>
+
+          <form
+            #userComment="ngForm"
+            (ngSubmit)="onCommentSubmit(userComment.value, item._id)"
+          >
+            <div class="post-comment">
+              <img
+                src="http://localhost:3000/{{ user_photo }}"
+                alt="profilepic"
+                class="profile-photo-sm"
+              />
+
+              <input
+                type="text"
+                name="comment"
+                class="form-control"
+                placeholder="Post a comment"
+                ngModel
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">
+              Add Comment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
